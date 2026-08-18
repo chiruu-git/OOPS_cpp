@@ -23,3 +23,6 @@ classes vs object
 
 class = blueprint 
 object = instance of class
+
+
+passing object to functions

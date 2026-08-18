@@ -24,7 +24,25 @@ public:
 };
 
 
+//passing object to functions
+void print(Car c){
+    cout << c.year << " " << c.bhp << " " 
+    << c.manufacture <<" " << c.model << " " << '\n';
+}
+
+
+// pass by reference.
+void change(int& x){
+    x = 10;
+
+}
+
 int main(){
+    int  x = 10;
+    change(x);
+    cout << x << '\n';
+
+
     Student s1;
     // s1 is object of class student
     // object contain diff details. 
@@ -40,12 +58,30 @@ int main(){
 
     // cout << s1.rno << '\n';
     Car c1;
-    c1.bhp = 60;
+    c1.bhp = 70;
     c1.manufacture = "wolksvagon";
     c1.model = "Vento";
     c1.year  = 2020;
     c1.price = 800000;
 
+    Car c2;
+    c2.bhp = 90;
+    c2.manufacture = "tata";
+    c2.model = "nexon";
+    c2.year  = 2025;
+    c2.price = 765000;
+
+    Car c3;
+    c3.bhp = 110;
+    c3.manufacture = "kia";
+    c3.model = "sonet";
+    c3.year  = 2019;
+    c3.price = 900000;
+
     // cout << c1.bhp << '\n';     
+    // to print all in a single function
+    // print(c1);
+    // print(c2);
+    // print(c3);
     return 0;
 }
