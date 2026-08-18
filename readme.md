@@ -26,3 +26,8 @@ object = instance of class
 
 
 passing object to functions
+
+CONSTRUCTOR
+a constructor is a special member function of a class that is 
+automatically called whenever a new object of that class is 
+created.
