@@ -13,6 +13,14 @@ types of constructor;
     - non parameterised
     - parameterise
     - copy constructors
+
+
+
+this. 
+    this is a special pointer in c++ that points to the current object
+    this -> prop is same as *(this).prop
+    It points directly to the memory address of the 
+    specific object that called the function
  */
 
 
@@ -31,11 +39,18 @@ public:
         college_name = "NIE MYsore";
     }
  */
-    //parameterised
+    /* //parameterised
     Student(string sn, string cn, int u){
         student_name = sn;
         college_name = cn;
         usn = u;
+    } */
+
+   // this keyword (lets u use the same name as global vars)
+    Student(string student_name, string college_name, int usn){
+        this->college_name = college_name;
+        this->student_name = student_name;
+        this->usn = usn;
     }
 };
 
