@@ -2,8 +2,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Teacher{
 
+/* 
+diffent access modifiers in cpp 
+- public
+- private ( by default )
+- protected ( used when inheritance) 
+ */
+
+class Teacher{
 private:
     double salary;
 
