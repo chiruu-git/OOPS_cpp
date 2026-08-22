@@ -1,23 +1,31 @@
-C++ OOPs Notes & Practice
+# C++ OOPs Notes & Practice
 
-This repository contains my C++ learning notes, examples, and practice programs related to Object-Oriented Programming (OOPs).
+This repository contains my C++ learning notes, examples, and practice programs related to **Object-Oriented Programming (OOPs)**.
 
-📚 Topics
-Topic	Notes / Examples
-Class & Object	01_class_object.cpp
-Constructors	constructors.cpp
-Constructor Practice	constructor
-Encapsulation	encapsulation, encapsulation.cpp
-Pass by Reference	pass_by_ref.cpp
-Pass Object to Function	pass_object_to_function.cpp
-User Defined Data Types	UserDefinedDataTypes
-Important Points	imp_points.md
-🧠 OOPs Notes
-1. Class and Object
-Class
+## 📚 Topics
 
-A class is a user-defined data type that groups data members and member functions together.
+| Topic                   | Notes / Examples                     |
+| ----------------------- | ------------------------------------ |
+| Class & Object          | `01_class_object.cpp`                |
+| Constructors            | `constructors.cpp`                   |
+| Constructor Practice    | `constructor`                        |
+| Encapsulation           | `encapsulation`, `encapsulation.cpp` |
+| Pass by Reference       | `pass_by_ref.cpp`                    |
+| Pass Object to Function | `pass_object_to_function.cpp`        |
+| User Defined Data Types | `UserDefinedDataTypes.cpp`           |
+| Important Points        | `imp_points.md`                      |
 
+---
+
+# 🧠 OOPs Notes
+
+## 1. Class and Object
+
+### Class
+
+A **class** is a user-defined data type that groups data members and member functions together.
+
+```cpp
 class Student {
 public:
     string name;
@@ -27,33 +35,44 @@ public:
         cout << name << " " << age;
     }
 };
+```
 
-Object
+### Object
 
-An object is an instance of a class.
+An **object** is an instance of a class.
 
+```cpp
 Student s1;
+
 s1.name = "Rahul";
 s1.age = 20;
 s1.display();
+```
 
-Key Points
-Class is a blueprint/template.
-Object is an instance of a class.
-A class can contain variables and functions.
-Multiple objects can be created from one class.
-2. Constructors
+### Key Points
 
-A constructor is a special member function that is automatically called when an object is created.
+* Class is a blueprint/template.
+* Object is an instance of a class.
+* A class can contain variables and functions.
+* Multiple objects can be created from one class.
+* Each object has its own data.
 
-Properties
-Constructor has the same name as the class.
-It has no return type.
-It is automatically invoked when an object is created.
-Constructors are generally used to initialize objects.
+---
 
-Example:
+# 2. Constructors
 
+A **constructor** is a special member function that is automatically called when an object is created.
+
+### Properties
+
+* Constructor has the same name as the class.
+* It has no return type.
+* It is automatically invoked when an object is created.
+* Constructors are generally used to initialize objects.
+
+### Example
+
+```cpp
 class Student {
 public:
     Student() {
@@ -64,14 +83,17 @@ public:
 int main() {
     Student s1;
 }
+```
 
-Types of Constructors
-Default Constructor
-Parameterized Constructor
-Copy Constructor
+### Types of Constructors
 
-Example of a parameterized constructor:
+1. Default Constructor
+2. Parameterized Constructor
+3. Copy Constructor
 
+### Parameterized Constructor
+
+```cpp
 class Student {
 public:
     string name;
@@ -82,25 +104,32 @@ public:
         age = a;
     }
 };
+```
 
-3. Constructor Practice
+---
+
+# 3. Constructor Practice
 
 Constructors can be used to initialize different objects with different values.
 
+```cpp
 Student s1("Rahul", 20);
 Student s2("Aman", 21);
-
+```
 
 Each object gets its own initialized values.
 
-📁 Open constructor practice
+📁 **Practice:** `constructor`
 
-4. Encapsulation
+---
 
-Encapsulation means wrapping data and functions together inside a class and controlling access to that data.
+# 4. Encapsulation
 
-Example:
+**Encapsulation** means wrapping data and functions together inside a class and controlling access to that data.
 
+### Example
+
+```cpp
 class Account {
 private:
     int balance;
@@ -114,55 +143,69 @@ public:
         return balance;
     }
 };
+```
 
+Here, `balance` cannot be directly accessed from outside the class.
 
-Here, balance cannot be directly accessed from outside the class.
+### Access Specifiers
 
-Access Specifiers
-Access Specifier	Accessible From
-public	Anywhere
-private	Only inside the class
-protected	Class and derived classes
-Benefits of Encapsulation
-Data protection
-Better security
-Controlled access
-Easier maintenance
-Reduces accidental modification of data
+| Access Specifier | Accessible From           |
+| ---------------- | ------------------------- |
+| `public`         | Anywhere                  |
+| `private`        | Only inside the class     |
+| `protected`      | Class and derived classes |
 
-📁 encapsulation
-📁 encapsulation.cpp
+### Benefits of Encapsulation
 
-5. Pass by Reference
+* Data protection
+* Better security
+* Controlled access
+* Easier maintenance
+* Reduces accidental modification of data
 
-In pass by reference, a function receives a reference to the original variable rather than a copy.
+📁 `encapsulation`
+📁 `encapsulation.cpp`
 
+---
+
+# 5. Pass by Reference
+
+In **pass by reference**, a function receives a reference to the original variable rather than a copy.
+
+```cpp
 void change(int &x) {
     x = 100;
 }
 
 int main() {
     int a = 10;
+
     change(a);
 
     cout << a;  // 100
 }
-
+```
 
 The original variable is modified.
 
-Pass by Value vs Pass by Reference
-Pass by Value	Pass by Reference
-Copy is passed	Reference is passed
-Original value is not changed	Original value can be changed
-Uses additional copy	Avoids unnecessary copy
+### Pass by Value vs Pass by Reference
 
-📁 pass_by_ref.cpp
+| Pass by Value                                     | Pass by Reference                                        |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| Copy is passed                                    | Reference to original variable is passed                 |
+| Original value is not changed                     | Original value can be changed                            |
+| Creates a copy                                    | Avoids unnecessary copy                                  |
+| Useful when original data should remain unchanged | Useful when modification or efficient access is required |
 
-6. Passing Object to Function
+📁 `pass_by_ref.cpp`
+
+---
+
+# 6. Passing Object to Function
 
 Objects can also be passed as arguments to functions.
 
+```cpp
 class Student {
 public:
     int marks;
@@ -171,70 +214,81 @@ public:
 void display(Student s) {
     cout << s.marks;
 }
-
+```
 
 An object can be passed:
 
-By value
-By reference
-By pointer
+* By value
+* By reference
+* By pointer
+
+### Passing Object by Reference
 
 Passing by reference is often useful because it avoids making an unnecessary copy.
 
-Example:
-
+```cpp
 void display(const Student &s) {
     cout << s.marks;
 }
+```
 
+Here, `const` ensures that the function cannot modify the object.
 
-📁 pass_object_to_function.cpp
+📁 `pass_object_to_function.cpp`
 
-7. User Defined Data Types
+---
+
+# 7. User Defined Data Types
 
 C++ allows us to create our own data types.
 
-Common user-defined types include:
+### Common User-Defined Types
 
-class
-struct
-union
-enum
+* `class`
+* `struct`
+* `union`
+* `enum`
 
-Example:
+### Example
 
+```cpp
 class Student {
 public:
     string name;
     int age;
 };
+```
 
+Now `Student` becomes a new type that can be used to create objects.
 
-Now Student becomes a new type that can be used to create objects.
-
+```cpp
 Student s1;
 Student s2;
+```
 
+📁 `UserDefinedDataTypes.cpp`
 
-📁 User Defined Data Types
+---
 
-⭐ 8. Important Points
-OOPs Main Concepts
+# ⭐ 8. Important Points
+
+## OOPs Main Concepts
 
 The four major pillars of OOP are:
 
-1. Encapsulation
+### 1. Encapsulation
 
 Binding data and functions together and controlling access to data.
 
-2. Abstraction
+### 2. Abstraction
 
 Showing only essential information and hiding unnecessary implementation details.
 
-3. Inheritance
+### 3. Inheritance
 
 Allowing one class to acquire properties and behavior of another class.
 
+```cpp
 class Animal {
 public:
     void eat() {
@@ -244,35 +298,45 @@ public:
 
 class Dog : public Animal {
 };
+```
 
+Here, `Dog` inherits from `Animal`.
 
-Dog inherits from Animal.
+### 4. Polymorphism
 
-4. Polymorphism
-
-The same function/interface can behave differently in different situations.
+The same function or interface can behave differently in different situations.
 
 Types:
 
-Compile-time polymorphism
-Run-time polymorphism
+* Compile-time polymorphism
+* Run-time polymorphism
 
 Examples include:
 
-Function overloading
-Operator overloading
-Function overriding
-Virtual functions
-🔑 Quick Revision
-Class       → Blueprint
-Object      → Instance of class
-Constructor → Initializes object
-Encapsulation → Data + Functions + Data hiding
-Inheritance → Reusing properties of another class
-Polymorphism → One interface, multiple behaviors
-Abstraction  → Hiding implementation details
+* Function overloading
+* Operator overloading
+* Function overriding
+* Virtual functions
 
-📂 Repository Structure
+---
+
+# 🔑 Quick Revision
+
+| Concept           | Meaning                                          |
+| ----------------- | ------------------------------------------------ |
+| **Class**         | Blueprint                                        |
+| **Object**        | Instance of a class                              |
+| **Constructor**   | Initializes an object                            |
+| **Encapsulation** | Data + Functions + Data hiding                   |
+| **Inheritance**   | Reusing properties and behavior of another class |
+| **Polymorphism**  | One interface, multiple behaviors                |
+| **Abstraction**   | Hiding implementation details                    |
+
+---
+
+# 📂 Repository Structure
+
+```text
 .
 ├── apnacollege/
 │   ├── class-object-access...
@@ -290,10 +354,13 @@ Abstraction  → Hiding implementation details
 │   └── UserDefinedDataTypes.cpp
 │
 ├── .gitignore
-└── readme.md
+└── README.md
+```
 
-🚀 Goal
+---
 
-Learn and practice the fundamentals of C++ Object-Oriented Programming through simple examples and gradually build a strong foundation in OOPs.
+# 🚀 Goal
 
-Practice → Understand → Implement → Revise
+Learn and practice the fundamentals of **C++ Object-Oriented Programming** through simple examples and gradually build a strong foundation in OOPs.
+
+> **Practice → Understand → Implement → Revise**
